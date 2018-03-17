@@ -23,7 +23,7 @@ ext {
     publishedGroupId = 'com.hitanshudhawan.sharedpref'
     libraryName = 'sharedpref'
     artifact = 'sharedpref'
-    libraryDescription = 'A set of methods used to manipulate time object' ////////////////////////
+    libraryDescription = 'An android library for making SharedPreferences easy'
     siteUrl = 'https://github.com/hitanshu-dhawan/SharedPref'
     gitUrl = 'https://github.com/hitanshu-dhawan/SharedPref.git'
     libraryVersion = '1.0.0'
