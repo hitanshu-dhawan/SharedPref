@@ -17,10 +17,28 @@ android {
     }
 }
 
+ext {
+    bintrayRepo = 'SharedPref'
+    bintrayName = 'SharedPref'
+    publishedGroupId = 'com.hitanshudhawan.sharedpref'
+    libraryName = 'sharedpref'
+    artifact = 'sharedpref'
+    libraryDescription = 'A set of methods used to manipulate time object' ////////////////////////
+    siteUrl = 'https://github.com/hitanshu-dhawan/SharedPref'
+    gitUrl = 'https://github.com/hitanshu-dhawan/SharedPref.git'
+    libraryVersion = '1.0.0'
+    developerId = 'hitanshu-dhawan'
+    developerName = 'Hitanshu Dhawan'
+    developerEmail = 'hitanshudhawan1996@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:support-annotations:26.1.0'
 }
+
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
