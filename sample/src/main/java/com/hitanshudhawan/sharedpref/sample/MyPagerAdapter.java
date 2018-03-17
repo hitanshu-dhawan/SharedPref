@@ -31,8 +31,8 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
-            case 0: return "One";
-            case 1: return "Two";
+            case 0: return "put";
+            case 1: return "get";
         }
         return null;
     }

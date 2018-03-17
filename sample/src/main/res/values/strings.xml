@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SharedPref</string>
+    <string-array name="data_types_array">
+        <item>boolean</item>
+        <item>float</item>
+        <item>int</item>
+        <item>long</item>
+        <item>string</item>
+        <item>string set</item>
+    </string-array>
 </resources>

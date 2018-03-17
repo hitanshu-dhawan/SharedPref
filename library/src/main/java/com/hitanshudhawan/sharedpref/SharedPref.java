@@ -8,12 +8,10 @@ import android.support.annotation.RequiresApi;
 import java.util.Map;
 import java.util.Set;
 
-
 public final class SharedPref {
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener;
-    private SharedPref.OnSharedPrefChangeListener mOnSharedPrefChangeListener;
 
     public SharedPref(final Context context) {
         this(context, context.getPackageName(), Context.MODE_PRIVATE);
@@ -126,22 +124,20 @@ public final class SharedPref {
     }
 
     public void registerOnSharedPrefChangeListener(final SharedPref.OnSharedPrefChangeListener listener) {
-        mOnSharedPrefChangeListener = listener;
         mOnSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                mOnSharedPrefChangeListener.onSharedPrefChanged(key);
+                listener.onSharedPrefChanged(key);
             }
         };
         mSharedPreferences.registerOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
     }
 
     public void unregisterOnSharedPrefChangeListener(final SharedPref.OnSharedPrefChangeListener listener) {
-        mOnSharedPrefChangeListener = listener;
         mOnSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                mOnSharedPrefChangeListener.onSharedPrefChanged(key);
+                listener.onSharedPrefChanged(key);
             }
         };
         mSharedPreferences.unregisterOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
