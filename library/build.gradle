@@ -7,7 +7,6 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -18,9 +17,9 @@ android {
 }
 
 ext {
-    bintrayRepo = 'SharedPref'
+    bintrayRepo = 'maven'
     bintrayName = 'SharedPref'
-    publishedGroupId = 'com.hitanshudhawan.sharedpref'
+    publishedGroupId = 'com.hitanshudhawan'
     libraryName = 'sharedpref'
     artifact = 'sharedpref'
     libraryDescription = 'An android library for making SharedPreferences easy'
@@ -40,5 +39,5 @@ dependencies {
     implementation 'com.android.support:support-annotations:26.1.0'
 }
 
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
