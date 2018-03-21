@@ -35,16 +35,16 @@ Default file ```name``` will be packageName of your project.
 Default operating ```mode``` will be MODE_PRIVATE.
 ### Put
 ```
-sharedPref.putString(key,value);
-sharedPref.putInt(key,value);
-sharedPref.putLong(key,value);
+sharedPref.putString(key, value);
+sharedPref.putInt(key, value);
+sharedPref.putLong(key, value);
 // and many more...
 ```
 ### Get
 ```
-sharedPref.getString(key,defValue);
-sharedPref.getInt(key,defValue);
-sharedPref.getLong(key,defValue);
+sharedPref.getString(key, defValue);
+sharedPref.getInt(key, defValue);
+sharedPref.getLong(key, defValue);
 // and many more...
 ```
 
