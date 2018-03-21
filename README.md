@@ -11,15 +11,6 @@ An android library for making [SharedPreferences](https://developer.android.com/
 ```
 implementation 'com.hitanshudhawan:shared-pref:1.0.0'
 ```
-### Maven
-```
-<dependency>
-  <groupId>com.hitanshudhawan</groupId>
-  <artifactId>shared-pref</artifactId>
-  <version>1.0.0</version>
-  <type>pom</type>
-</dependency>
-```
 
 # Usage
 ### Initialize
