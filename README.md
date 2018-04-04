@@ -21,9 +21,9 @@ SharedPref sharedPref = new SharedPref(context, name);
 // or
 SharedPref sharedPref = new SharedPref(context, name, mode);
 ```
-Default file ```name``` will be packageName of your project.
+Default file ```name``` will be ```packageName``` of your project.
 <br>
-Default operating ```mode``` will be MODE_PRIVATE.
+Default operating ```mode``` will be ```MODE_PRIVATE```.
 ### Put
 ```
 sharedPref.putString(key, value);
