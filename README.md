@@ -38,6 +38,7 @@ sharedPref.getInt(key, defValue);
 sharedPref.getLong(key, defValue);
 // and many more...
 ```
+<b>and thats it!</b> No need for ```commit()``` or ```apply()```.
 
 # Licence
 ```
