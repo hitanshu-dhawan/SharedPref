@@ -1,5 +1,6 @@
 package com.hitanshudhawan.sharedpref;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,6 +13,7 @@ public final class SharedPref {
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener;
+    private SharedPreferences.Editor mSharedPreferencesEditor;
     private int commitType;
     public static final int MANUAL_COMMIT = 1;
 
@@ -28,6 +30,7 @@ public final class SharedPref {
     public SharedPref(final Context context, final String name, final int mode) {
         mSharedPreferences = context.getSharedPreferences(name, mode);
         commitType = 0;
+        mSharedPreferencesEditor =  mSharedPreferences.edit();
     }
 
     public SharedPref(final Context context,final String name,final int mode,final int commitType){
@@ -40,11 +43,16 @@ public final class SharedPref {
         return mSharedPreferences.contains(key);
     }
 
+    //Todo
     public void remove(final String key) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().remove(key).apply();
-        } else {
-            mSharedPreferences.edit().remove(key).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.remove(key);
+        }else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().remove(key).apply();
+            } else {
+                mSharedPreferences.edit().remove(key).commit();
+            }
         }
     }
 
@@ -53,10 +61,14 @@ public final class SharedPref {
     }
 
     public void clear() {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().clear().apply();
-        } else {
-            mSharedPreferences.edit().clear().commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.clear();
+        }else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().clear().apply();
+            } else {
+                mSharedPreferences.edit().clear().commit();
+            }
         }
     }
 
@@ -65,10 +77,14 @@ public final class SharedPref {
     }
 
     public void putBoolean(final String key, final boolean value) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().putBoolean(key, value).apply();
-        } else {
-            mSharedPreferences.edit().putBoolean(key, value).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.putBoolean(key, value);
+        }else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().putBoolean(key, value).apply();
+            } else {
+                mSharedPreferences.edit().putBoolean(key, value).commit();
+            }
         }
     }
 
@@ -77,10 +93,15 @@ public final class SharedPref {
     }
 
     public void putFloat(final String key, final float value) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().putFloat(key, value).apply();
-        } else {
-            mSharedPreferences.edit().putFloat(key, value).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.putFloat(key, value);
+        }
+        else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().putFloat(key, value).apply();
+            } else {
+                mSharedPreferences.edit().putFloat(key, value).commit();
+            }
         }
     }
 
@@ -89,11 +110,16 @@ public final class SharedPref {
     }
 
     public void putInt(final String key, final int value) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().putInt(key, value).apply();
-        } else {
-            mSharedPreferences.edit().putInt(key, value).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.putInt(key, value);
+        }else{
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().putInt(key, value).apply();
+            } else {
+                mSharedPreferences.edit().putInt(key, value).commit();
+            }
         }
+
     }
 
     public long getLong(final String key, final long defValue) {
@@ -101,10 +127,14 @@ public final class SharedPref {
     }
 
     public void putLong(final String key, final long value) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().putLong(key, value).apply();
-        } else {
-            mSharedPreferences.edit().putLong(key, value).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.putLong(key, value);
+        }else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().putLong(key, value).apply();
+            } else {
+                mSharedPreferences.edit().putLong(key, value).commit();
+            }
         }
     }
 
@@ -113,10 +143,14 @@ public final class SharedPref {
     }
 
     public void putString(final String key, final String value) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().putString(key, value).apply();
-        } else {
-            mSharedPreferences.edit().putString(key, value).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.putString(key, value);
+        }else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().putString(key, value).apply();
+            } else {
+                mSharedPreferences.edit().putString(key, value).commit();
+            }
         }
     }
 
@@ -127,10 +161,14 @@ public final class SharedPref {
 
     @RequiresApi(11)
     public void putStringSet(final String key, final Set<String> values) {
-        if (Build.VERSION.SDK_INT >= 9) {
-            mSharedPreferences.edit().putStringSet(key, values).apply();
-        } else {
-            mSharedPreferences.edit().putStringSet(key, values).commit();
+        if(commitType == MANUAL_COMMIT){
+            mSharedPreferencesEditor.putStringSet(key, values);
+        }else {
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().putStringSet(key, values).apply();
+            } else {
+                mSharedPreferences.edit().putStringSet(key, values).commit();
+            }
         }
     }
 
@@ -161,9 +199,9 @@ public final class SharedPref {
     public void commitChanges(){
         if(commitType == MANUAL_COMMIT){
             if (Build.VERSION.SDK_INT >= 9) {
-                mSharedPreferences.edit().apply();
+                mSharedPreferencesEditor.apply();
             } else {
-                mSharedPreferences.edit().commit();
+                mSharedPreferencesEditor.commit();
             }
         }
     }
