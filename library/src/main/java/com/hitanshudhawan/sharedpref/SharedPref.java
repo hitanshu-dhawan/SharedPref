@@ -30,12 +30,12 @@ public final class SharedPref {
     public SharedPref(final Context context, final String name, final int mode) {
         mSharedPreferences = context.getSharedPreferences(name, mode);
         commitType = 0;
-        mSharedPreferencesEditor =  mSharedPreferences.edit();
     }
 
     public SharedPref(final Context context,final String name,final int mode,final int commitType){
         mSharedPreferences =  context.getSharedPreferences(name,mode);
         this.commitType = commitType;
+        mSharedPreferencesEditor =  mSharedPreferences.edit();
     }
 
 
