@@ -12,18 +12,29 @@ public final class SharedPref {
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener;
+    private int commitType;
+    public static final int MANUAL_COMMIT = 1;
 
     public SharedPref(final Context context) {
         this(context, context.getPackageName(), Context.MODE_PRIVATE);
+        commitType = 0;
     }
 
     public SharedPref(final Context context, final String name) {
         this(context, name, Context.MODE_PRIVATE);
+        commitType = 0;
     }
 
     public SharedPref(final Context context, final String name, final int mode) {
         mSharedPreferences = context.getSharedPreferences(name, mode);
+        commitType = 0;
     }
+
+    public SharedPref(final Context context,final String name,final int mode,final int commitType){
+        mSharedPreferences =  context.getSharedPreferences(name,mode);
+        this.commitType = commitType;
+    }
+
 
     public boolean contains(final String key) {
         return mSharedPreferences.contains(key);
@@ -145,5 +156,15 @@ public final class SharedPref {
 
     public interface OnSharedPrefChangeListener {
         void onSharedPrefChanged(String key);
+    }
+
+    public void commitChanges(){
+        if(commitType == MANUAL_COMMIT){
+            if (Build.VERSION.SDK_INT >= 9) {
+                mSharedPreferences.edit().apply();
+            } else {
+                mSharedPreferences.edit().commit();
+            }
+        }
     }
 }
