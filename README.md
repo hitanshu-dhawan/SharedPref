@@ -1,6 +1,7 @@
-[![Hitanshu Dhawan](https://img.shields.io/badge/Hitanshu-Dhawan-blue.svg)](https://github.com/hitanshu-dhawan)
-[![Open Source Love png2](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/hitanshu-dhawan/SharedPref)
-[![License](https://img.shields.io/badge/License-Apache--2.0-green.svg)](https://github.com/hitanshu-dhawan/SharedPref/blob/master/LICENSE)
+## Deprecated
+SharedPref is deprecated in favor of [Jetpack DataStore](https://developer.android.com/topic/libraries/architecture/datastore).
+
+---
 
 SharedPref
 ==========
